@@ -1,0 +1,50 @@
+<section
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="dialog-title"
+  aria-describedby="dialog-description"
+  cdkTrapFocus
+  cdkTrapFocusAutoCapture="true">
+  <h3 id="dialog-title" tabindex="-1" cdkFocusInitial>{{ player.name }}</h3>
+  <p id="dialog-description">{{ player.description }}</p>
+  <dl>
+    <div>
+      <dt>
+        Games Played
+      </dt>
+      <dd>
+        {{ player.games | number }}
+      </dd>
+    </div>
+    <div>
+      <dt>
+        Points Scored
+      </dt>
+      <dd>
+        {{ player.points | number }}
+      </dd>
+    </div>
+    <div>
+      <dt>
+        Field Goal Percentage
+      </dt>
+      <dd>
+        {{ player.fieldGoalPercentage | percent:'.1' }}
+      </dd>
+    </div>
+    <div>
+      <dt>
+        Three Point Percentage
+      </dt>
+      <dd>
+        {{ player.threePointPercentage | percent:'.1' }}
+      </dd>
+    </div>
+  </dl>
+  <footer>
+    <a [href]="player.wikipedia">See More on Wikipedia</a>
+    <button (click)="close()">
+      <span class="cdk-visually-hidden">Close</span>
+    </button>
+  </footer>
+</section>

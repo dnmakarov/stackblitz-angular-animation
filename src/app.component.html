@@ -1,0 +1,23 @@
+<section cdkScrollable>
+  <div [@animation]="players">
+    @for (player of players; track player.name) {
+      <app-player [player]="player"></app-player>
+    } @empty {
+      <p>Sorry, we couldn't find any players with the name you entered</p>
+    }
+  </div>
+</section>
+<button
+  *ngIf="players.length > 0"
+  (click)="removePlayers()"
+  title="Remove Player"
+  class="remove">
+  <span class="cdk-visually-hidden">Remove Player</span>
+</button>
+<button
+  *ngIf="players.length < totalCount"
+  (click)="addPlayers()"
+  title="Add Player"
+  class="add">
+  <span class="cdk-visually-hidden">Add Player</span>
+</button>
